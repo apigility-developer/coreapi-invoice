@@ -1,0 +1,15 @@
+---
+applications:
+- name: coreapi-product
+  instances: 1
+  memory: 512M
+  path: ../../target/catalog-api-1.0.0-SNAPSHOT.jar
+  services:
+    - datastore-mysql-product
+    - sharedservice-eventbroker
+    - sharedservice-discovery
+  env: 
+    SPRING_PROFILES_ACTIVE: cloud
+    EUREKA_CLIENT_ENABLED: true
+    SPRING_DATASOURCE_NAME: gravitant_mysql_product
+    

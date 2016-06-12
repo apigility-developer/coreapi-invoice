@@ -1,0 +1,37 @@
+productapi:
+  image: gravitant/coreapi-product
+  links: 
+    - "discovery"
+    - "event"
+    - "productdb"
+  environment:
+    - "SPRING_PROFILES_ACTIVE=docker"
+    - "SPRING_DATASOURCE_NAME=gravitant_mysql_product"
+    - "SPRING_DATASOURCE_USERNAME=${MYSQL_USER}"
+    - "SPRING_DATASOURCE_PASSWORD=${MYSQL_PASSWORD}"
+gateway: 
+  image: gravitant/api-gateway
+  ports:
+    - "8765:8765"
+  links:
+    - discovery
+  environment: 
+    - "SPRING_PROFILES_ACTIVE=docker"
+discovery:
+  image: gravitant/sharedservice-discovery
+  ports:
+    - "8761:8761"
+event:
+  image: rabbitmq:3.5.3
+  ports:
+    - "5673:5672"
+    - "15673:15672"
+productdb:
+  image: mysql
+  volumes:
+    - /data/db
+  environment:
+    - "MYSQL_DATABASE=gravitant_mysql_product"
+    - "MYSQL_USER=${MYSQL_USER}"
+    - "MYSQL_PASSWORD=${MYSQL_PASSWORD}"
+    - "MYSQL_ROOT_PASSWORD=${MYSQL_PASSWORD}"
