@@ -11,5 +11,5 @@ services:
 script:
   - mvn clean package -Dmaven.test.skip=true
   - docker build -t gravitant/coreapi-catalog .
-  - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+  - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USER" -p="$DOCKER_PASSWORD"
   - docker push gravitant/coreapi-catalog
