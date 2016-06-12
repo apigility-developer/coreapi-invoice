@@ -7,18 +7,10 @@ import org.joda.time.DateTime;
 @Relation(value="catalog", collectionRelation="catalogs")
 public class CatalogResource extends ResourceSupport {
 	
-	private String displayName;
 	private String description;
 	private String name;
+	private String displayName;
 	public CatalogResource() {
-	}
-
-	public String getDisplayName() {
-		return this.displayName;
-	}
-	
-	public void setDisplayName(String displayName) {
-		this.displayName = displayName;
 	}
 
 	public String getDescription() {
@@ -35,6 +27,14 @@ public class CatalogResource extends ResourceSupport {
 	
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getDisplayName() {
+		return this.displayName;
+	}
+	
+	public void setDisplayName(String displayName) {
+		this.displayName = displayName;
 	}
 
 }

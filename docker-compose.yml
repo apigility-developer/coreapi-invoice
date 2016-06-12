@@ -1,0 +1,18 @@
+productapi:
+  image: gravitant/coreapi-product
+  links: 
+    - "productdb"
+  environment:
+    - "SPRING_PROFILES_ACTIVE=docker"
+    - "SPRING_DATASOURCE_NAME=gravitant_mysql_product"
+    - "SPRING_DATASOURCE_USERNAME=${MYSQL_USER}"
+    - "SPRING_DATASOURCE_PASSWORD=${MYSQL_PASSWORD}"
+productdb:
+  image: mysql
+  volumes:
+    - /data/db
+  environment:
+    - "MYSQL_DATABASE=gravitant_mysql_product"
+    - "MYSQL_USER=${MYSQL_USER}"
+    - "MYSQL_PASSWORD=${MYSQL_PASSWORD}"
+    - "MYSQL_ROOT_PASSWORD=${MYSQL_PASSWORD}"

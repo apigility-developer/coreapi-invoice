@@ -1,3 +1,3 @@
-insert into catalog (id, display_name, description, name) values (1, 'Softlayer Virtual Machines', 'Softlayer virtual machines description placeholder', 'softlayervm');
+insert into catalog (id, description, name, display_name) values (1, 'Softlayer virtual machines description placeholder', 'softlayervm', 'Softlayer Virtual Machines');
 
 
