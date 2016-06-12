@@ -82,14 +82,14 @@ public class CatalogServiceImpl implements CatalogService {
 		catalog = this.conversionService.map(catalogDto, Catalog.class);
 		updatedCatalog = this.retrieveCatalogById(catalog.getId());
 		if (updatedCatalog != null) {
+			if (catalog.getDisplayName() != null) {
+				updatedCatalog.setDisplayName(catalog.getDisplayName());
+			}
 			if (catalog.getName() != null) {
 				updatedCatalog.setName(catalog.getName());
 			}
 			if (catalog.getDescription() != null) {
 				updatedCatalog.setDescription(catalog.getDescription());
-			}
-			if (catalog.getDisplayName() != null) {
-				updatedCatalog.setDisplayName(catalog.getDisplayName());
 			}
 		}
 	}

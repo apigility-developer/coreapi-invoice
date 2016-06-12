@@ -14,16 +14,16 @@ public class CatalogDto implements Serializable {
 	private String id;
 
 	@NotEmpty
+	@Size(max=50)
+	private String displayName;
+
+	@NotEmpty
 	@Size(max=25)
 	private String name;
 
 	@NotEmpty
 	@Size(max=200)
 	private String description;
-
-	@NotEmpty
-	@Size(max=50)
-	private String displayName;
 	public CatalogDto() {
 	}
 	
@@ -33,6 +33,14 @@ public class CatalogDto implements Serializable {
 
 	public void setId(String id) {
 		this.id = id;
+	}
+	
+	public String getDisplayName() {
+		return this.displayName;
+	}
+	
+	public void setDisplayName(String displayName) {
+		this.displayName = displayName;
 	}
 	
 	public String getName() {
@@ -49,14 +57,6 @@ public class CatalogDto implements Serializable {
 	
 	public void setDescription(String description) {
 		this.description = description;
-	}
-	
-	public String getDisplayName() {
-		return this.displayName;
-	}
-	
-	public void setDisplayName(String displayName) {
-		this.displayName = displayName;
 	}
 	
 }

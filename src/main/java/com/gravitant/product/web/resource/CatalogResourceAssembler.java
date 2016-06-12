@@ -24,9 +24,9 @@ public class CatalogResourceAssembler extends ResourceAssemblerSupport<CatalogDt
         LinkBuilder catalogLinkBuilder = this.entityLinks.linkForSingleResource(CatalogResource.class, catalogDto.getId());
         
         catalogResource = new CatalogResource();
+        catalogResource.setDisplayName(catalogDto.getDisplayName());
         catalogResource.setName(catalogDto.getName());
         catalogResource.setDescription(catalogDto.getDescription());
-        catalogResource.setDisplayName(catalogDto.getDisplayName());
         catalogResource.add(catalogLinkBuilder.withSelfRel());
 	   	return catalogResource;
 	}
