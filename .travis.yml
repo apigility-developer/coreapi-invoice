@@ -1,0 +1,15 @@
+sudo: required
+
+language: java
+
+jdk:
+  - oraclejdk8
+
+services:
+  - docker
+
+script:
+  - mvn clean package -Dmaven.test.skip=true
+  - docker build -t gravitant/coreapi-catalog .
+  - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+  - docker push gravitant/coreapi-catalog
