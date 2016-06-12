@@ -21,11 +21,11 @@ public class Catalog implements Serializable {
 	@Column(name="ID")
 	private String id;
 
-	@Column(name="DESCRIPTION")
-	private String description;
-
 	@Column(name="NAME")
 	private String name;
+
+	@Column(name="DESCRIPTION")
+	private String description;
 
 	@Column(name="DISPLAY_NAME")
 	private String displayName;
@@ -43,20 +43,20 @@ public class Catalog implements Serializable {
 		this.id = id;
 	}
 
-	public String getDescription() {
-		return this.description;
-	}
-	
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
 	public String getName() {
 		return this.name;
 	}
 	
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getDescription() {
+		return this.description;
+	}
+	
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public String getDisplayName() {
